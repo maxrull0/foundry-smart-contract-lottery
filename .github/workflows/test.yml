@@ -22,7 +22,11 @@ jobs:
 
       - name: Install Foundry
         run: |
-          make install
+          make install-foundry
+
+      - name: Install Dependencies
+        run: |
+          make install-dependencies
 
       - name: Show Forge version
         run: |
