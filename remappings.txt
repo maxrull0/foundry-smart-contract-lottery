@@ -1,0 +1,13 @@
+comment = remapping used by the sol linter handled by the "solidity" extension by Juan Blanco
+comment = must be additionally configured in the settings
+comment = this remapping is used by foundy's solc
+
+openzeppelin-contracts-08=lib/openzeppelin-contracts/contracts
+@chainlink/contracts/=lib/chainlink-brownie-contracts/contracts/
+chainlink-brownie-contracts/=lib/chainlink-brownie-contracts/
+ds-test/=lib/forge-std/lib/ds-test/src/
+forge-std/=lib/forge-std/src/
+foundry-devops/=lib/foundry-devops/
+@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/
+@solmate/=lib/solmate/src/
+

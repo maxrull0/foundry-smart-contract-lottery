@@ -1,0 +1,6 @@
+TestGas:test_CalldataThis() (gas: 9981)
+TestGas:test_MemoryLocal() (gas: 8743)
+TestGas:test_MemoryThis() (gas: 10236)
+TestGas:test_mySuperTransfer() (gas: 50660)
+TestGas:test_myTransfer() (gas: 50569)
+TransferDebugger:testCompareTransfers() (gas: 61024)
