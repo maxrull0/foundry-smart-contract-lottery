@@ -1,72 +1,31 @@
-## Foundry
+## Raffle Contract
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+## Description
 
-Foundry consists of:
+This is my self-written Raffle contract written under guidance of PatrickAlphaC in the Foundry Fundamentals course (https://updraft.cyfrin.io/courses/foundry/smart-contract-lottery/introduction).
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+It is a raffle where players can enter the raffle with a minimum fee to be paid.
 
-## Documentation
+Once the interval time has passed, a Chainlink Automation node will check if the winner can be picked and if true, the upkeep is performed.
 
-https://book.getfoundry.sh/
+During that, a Chainlink VRF request for random words is sent and fulfilled with a callback to the function that uses the provided randomness to randomly pick a winner of the entered players array.
 
-## Usage
+Then the raffle is reset and starts again.
+
+Used tech:
+- Chainlink VRF v2.5
+- Chainlink Automation (Keepers)
+- cyfrin DevOps to use last deployed contract during deployment and upgrades (not implemented)
+- VRF mocks
+
+## Setup
+
+Use the makefile to build, test, and deploy on sepolia.
+Also contains install command to install dependencies.
 
 ### Coverage
 
+To create a coverage report, run the following after you installed lcov and foundry.
 ```shell
 forge coverage --report lcov && genhtml lcov.info --branch-coverage --output-dir coverage -ignore-errors inconsistent --ignore-errors corrupt
-```
-
-### Build
-
-```shell
-$ forge build
-```
-
-### Test
-
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
 ```
