@@ -6,6 +6,8 @@ build :; forge build
 
 test :; forge test
 
+format :; forge fmt
+
 clean :; forge clean
 
 install :; forge install cyfrin/foundry-devops@0.2.2 --no-commit && \

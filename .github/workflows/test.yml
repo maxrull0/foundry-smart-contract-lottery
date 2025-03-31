@@ -21,7 +21,8 @@ jobs:
           submodules: recursive
 
       - name: Install Foundry
-        uses: foundry-rs/foundry-toolchain@v1
+        run: |
+          make install
 
       - name: Show Forge version
         run: |
@@ -29,15 +30,15 @@ jobs:
 
       - name: Run Forge fmt
         run: |
-          forge fmt
+          make format
         id: fmt
 
       - name: Run Forge build
         run: |
-          forge build --sizes
+          make build
         id: build
 
       - name: Run Forge tests
         run: |
-          forge test -vvv
+          make test
         id: test
